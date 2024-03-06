@@ -1,0 +1,17 @@
+form {
+    margin:auto;/* nice thing of auto margin if display:flex; it center both horizontal and vertical :) */
+}
+
+#error-message {
+    background-color: darksalmon;
+    background-size: initial;
+    color: crimson;
+    display: block;
+
+    /* css moment */
+    width: 0;
+    min-width: 100%;
+
+    height: 0;
+    min-height: fit-content;
+}

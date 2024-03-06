@@ -1,0 +1,68 @@
+.center-div {
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+html, body {
+    height: auto;
+}
+
+.menu-item {
+    width: 100%;
+    display: flex;
+    background-color: lightgray;
+    flex-direction: row;
+
+    padding: 5px 5px 5px 5%;
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+}
+
+.values {
+    flex: 5;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: min-content 1fr;
+
+    row-gap: 10px;
+    column-gap: 5%;
+}
+
+.buttons {
+    flex: 1;
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    height: fit-content;
+    width: fit-content;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: content;
+}
+
+.dish-button {
+    flex: 1
+}
+
+.error-message {
+    grid-column: span 2;
+    color: crimson;
+}
+
+.input-label {
+    white-space: nowrap;
+}
+
+p {
+    margin: 0;
+}
+
+input {
+    height: fit-content;
+}
+

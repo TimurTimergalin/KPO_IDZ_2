@@ -1,0 +1,35 @@
+.center-div {
+    width: 25%;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+html, body {
+    height: auto;
+}
+
+.order-div {
+    width: 100%;
+    background-color: lightgray;
+    padding: 5px 5px 5px 5%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.order-items {
+    padding-left: 5%;
+}
+
+.order-items p {
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+.status-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+p {
+    margin: 0;
+}

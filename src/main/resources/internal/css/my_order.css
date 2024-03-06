@@ -1,0 +1,137 @@
+html, body {
+    width: 95%;
+    height: 95%;
+}
+
+.logo {
+    max-width: 30%;
+    max-height: 10%;
+}
+
+.menu-holder {
+    padding-top: 20px;
+    position: fixed;
+    overflow-y: auto;
+    width: 35%;
+    height: 100%;
+    right: 10px;
+    top: 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+}
+
+.cart-holder {
+    padding-top: 20px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 90%;
+    top: 10%;
+    right: 37.5%;
+}
+
+.cart-list {
+    overflow: auto;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+}
+
+.buttons {
+    padding: 5px;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+
+#order-error-message {
+    grid-column: span 2;
+    color: crimson;
+}
+
+.order-holder {
+    padding-top: 20px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 90%;
+    top: 10%;
+    left: 0;
+}
+
+.order-list {
+    overflow: auto;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+}
+
+.disabled {
+    opacity: 30%;
+}
+
+.menu-item {
+    width: 90%;
+    display: flex;
+    background-color: lightgray;
+    flex-direction: row;
+
+    padding: 5px 5px 5px 5%;
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+}
+
+.menu-item p {
+    margin: 0 0 2px;
+    white-space: nowrap;
+}
+
+.menu-item-props {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-auto-rows: min-content;
+    grid-column-gap: 10px;
+    flex: 4;
+}
+
+.add-to-cart-holder {
+    flex: 1;
+}
+
+.cart-item {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    padding: 5px 5px 5px 5%;
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+    background-color: lightgray;
+}
+
+.order-item {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+
+    padding: 5px 5px 5px 5%;
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+    background-color: lightgray;
+}
+
+p {
+    margin: 0;
+}
