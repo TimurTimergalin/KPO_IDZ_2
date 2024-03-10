@@ -69,7 +69,7 @@ fun Application.configureMainMenuRoutes() {
                 val args = mapOf<String, Any>(
                     "hasOrder" to RestaurantDao.run {
                         hasOrder(getById(session.id, Users)!!)  // Пользователь точно существует
-                                                    },
+                    },
                     "username" to session.username
                 )
                 if (session.role == "admin") {

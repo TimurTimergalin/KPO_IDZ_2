@@ -9,7 +9,7 @@ import io.ktor.server.response.*
 import io.ktor.server.sessions.*
 import io.ktor.util.*
 
-data class UserSession(val id: Long, val username: String, val role: String): Principal
+data class UserSession(val id: Long, val username: String, val role: String) : Principal
 
 fun Application.configureSecurity() {
     val secretEncryptionKey = hex(environment.config.property("session.keys.secretEncryptionKey").getString())

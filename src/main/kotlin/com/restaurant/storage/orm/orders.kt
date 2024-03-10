@@ -9,10 +9,10 @@ import kotlinx.serialization.Serializable
 import org.ktorm.dsl.eq
 import org.ktorm.entity.Entity
 import org.ktorm.entity.filter
-import org.ktorm.entity.map
-import org.ktorm.entity.toList
 import org.ktorm.schema.Table
-import org.ktorm.schema.*
+import org.ktorm.schema.datetime
+import org.ktorm.schema.long
+import org.ktorm.schema.varchar
 import java.time.LocalDateTime
 
 interface Order : EntityWithId<Order> {

@@ -32,7 +32,7 @@ object Passwords {
     }
 
     fun checkPassword(passwordRecord: String, password: String): Boolean {
-        with (Base64.getDecoder())
+        with(Base64.getDecoder())
         {
             val (salt, realPasswordHash) = passwordRecord.split('$').map { decode(it) }
             val toHash = concatenateByteArrays(salt, password.toByteArray(Charsets.UTF_8))

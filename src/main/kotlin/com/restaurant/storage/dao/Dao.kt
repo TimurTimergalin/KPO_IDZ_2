@@ -7,7 +7,7 @@ import com.restaurant.storage.orm.operators.CustomSqlFormatter
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.ktorm.database.Database
-import org.ktorm.dsl.*
+import org.ktorm.dsl.eq
 import org.ktorm.entity.*
 import org.ktorm.expression.SqlFormatter
 import org.ktorm.schema.Table
@@ -56,7 +56,7 @@ object RestaurantDao {
         return database.sequenceOf(table).find { it.id eq id }
     }
 
-    fun <T: Entity<T>> add(entity: T, table: Table<T>): Boolean {
+    fun <T : Entity<T>> add(entity: T, table: Table<T>): Boolean {
         return try {
             database.sequenceOf(table).add(entity)
             true
@@ -66,4 +66,4 @@ object RestaurantDao {
     }
 }
 
-fun <T: EntityWithId<T>> EntitySequence<T, TableWithId<T>>.ids() = map { it.id }
+fun <T : EntityWithId<T>> EntitySequence<T, TableWithId<T>>.ids() = map { it.id }

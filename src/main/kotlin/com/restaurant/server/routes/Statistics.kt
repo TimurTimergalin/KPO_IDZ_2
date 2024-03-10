@@ -18,7 +18,7 @@ fun Application.statisticsRoutes() {
             webSocket("/ws/statistics") {
                 RestaurantDao.dishesStatistics().let {
                     Json.encodeToString(it)
-                }.let{
+                }.let {
                     "{\"dishes\": $it}"
                 }.let {
                     Frame.Text(it)

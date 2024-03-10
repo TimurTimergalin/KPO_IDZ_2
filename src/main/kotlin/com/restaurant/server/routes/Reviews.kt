@@ -93,7 +93,7 @@ fun Application.reviewsRoutes() {
                             }.let {
                                 Frame.Text(it)
                             }.let {
-                                outgoing.send(it)                                                            
+                                outgoing.send(it)
                             }
                         } else {
                             try {

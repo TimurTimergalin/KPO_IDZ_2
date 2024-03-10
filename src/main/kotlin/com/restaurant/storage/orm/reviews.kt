@@ -9,7 +9,7 @@ import org.ktorm.schema.int
 import org.ktorm.schema.long
 import org.ktorm.schema.text
 
-interface Review: EntityWithId<Review> {
+interface Review : EntityWithId<Review> {
     companion object : Entity.Factory<Review>()
 
     override val id: Long
@@ -28,7 +28,7 @@ interface Review: EntityWithId<Review> {
 val Review.snapshot get() = Review.Snapshot(author?.login, rating, text)
 val Review.unnamedSnapshot get() = Review.UnnamedSnapshot(rating, text)
 
-open class Reviews(alias: String?): TableWithId<Review>("reviews", alias) {
+open class Reviews(alias: String?) : TableWithId<Review>("reviews", alias) {
     companion object : Reviews(null)
 
     override fun aliased(alias: String): Table<Review> {
@@ -37,7 +37,7 @@ open class Reviews(alias: String?): TableWithId<Review>("reviews", alias) {
 
     override val id = long("id").primaryKey().bindTo { it.id }
     val authorId = long("author_id").references(Users) { it.author }
-    val dishId = long("dish_id").references(Dishes) {it.dish}
+    val dishId = long("dish_id").references(Dishes) { it.dish }
     val rating = int("rating").bindTo { it.rating }
     val text = text("text").bindTo { it.text }
 

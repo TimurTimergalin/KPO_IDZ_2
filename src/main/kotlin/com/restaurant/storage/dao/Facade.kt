@@ -98,7 +98,7 @@ fun RestaurantDao.dishesStatistics() = dishes.map {
     val s1 = countDishesPopularityThisMonth()
     val s2 = calculateAvgRating()
     val s3 = calculateDishRevenueThisMonth()
-    Dish.StatisticsSnapshot(it.id , it.name, s1[it.id] ?: 0, s2[it.id] ?: 0.0, s3[it.id] ?: 0.0)
+    Dish.StatisticsSnapshot(it.id, it.name, s1[it.id] ?: 0, s2[it.id] ?: 0.0, s3[it.id] ?: 0.0)
 }
 
 fun RestaurantDao.getUserReview(dish: Dish, user: User): Review? {
@@ -126,7 +126,7 @@ fun RestaurantDao.validateOrder(items: List<ClientOrderItem>): Boolean {
     return true
 }
 
-fun RestaurantDao.createOrder(items: List<ClientOrderItem>, author: User): Pair<Order, List<OrderDish>>  {
+fun RestaurantDao.createOrder(items: List<ClientOrderItem>, author: User): Pair<Order, List<OrderDish>> {
     return Order {
         this.author = author
         finishReason = null
@@ -149,7 +149,7 @@ fun RestaurantDao.updateOrder(items: List<ClientOrderItem>, order: Order): List<
 fun RestaurantDao.updateOrder(items: List<ClientOrderItem>, order: Order, transaction: Transaction): List<OrderDish> {
     return transaction.run {
         val res = mutableListOf<OrderDish>()
-        items.forEach {item ->
+        items.forEach { item ->
             val dish = getById(item.dishId, Dishes)!!
             for (i in 1..item.count) {
                 OrderDish {

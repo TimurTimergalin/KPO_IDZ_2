@@ -4,11 +4,11 @@ import com.restaurant.storage.orm.misc.EntityWithId
 import com.restaurant.storage.orm.misc.TableWithId
 import kotlinx.serialization.Serializable
 import org.ktorm.entity.Entity
-import org.ktorm.schema.Table
 import org.ktorm.schema.*
 
-interface Dish: EntityWithId<Dish> {
+interface Dish : EntityWithId<Dish> {
     companion object : Entity.Factory<Dish>()
+
     override val id: Long
     var name: String
     var count: Int
@@ -20,12 +20,18 @@ interface Dish: EntityWithId<Dish> {
     data class PropertySnapshot(val id: Long, val name: String, val count: Int, val cookingTime: Int, val price: Float)
 
     @Serializable
-    data class StatisticsSnapshot(val id: Long, val name: String, val ordersCount: Int, val averageRating: Double, val revenue: Double)
+    data class StatisticsSnapshot(
+        val id: Long,
+        val name: String,
+        val ordersCount: Int,
+        val averageRating: Double,
+        val revenue: Double
+    )
 }
 
 val Dish.propertySnapshot get() = Dish.PropertySnapshot(id, name, count, cookingTime, price)
 
-open class Dishes(alias: String?): TableWithId<Dish>("dishes", alias) {
+open class Dishes(alias: String?) : TableWithId<Dish>("dishes", alias) {
     companion object : Dishes(null)
 
     override fun aliased(alias: String): Table<Dish> {

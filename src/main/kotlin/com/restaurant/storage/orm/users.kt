@@ -8,7 +8,7 @@ import org.ktorm.schema.Table
 import org.ktorm.schema.long
 import org.ktorm.schema.varchar
 
-interface User: EntityWithId<User> {
+interface User : EntityWithId<User> {
     companion object : Entity.Factory<User>()
 
     override val id: Long
@@ -22,7 +22,7 @@ interface User: EntityWithId<User> {
 
 val User.snapshot get() = User.Snapshot(id, login)
 
-open class Users(alias: String?): TableWithId<User>("users", alias) {
+open class Users(alias: String?) : TableWithId<User>("users", alias) {
     companion object : Users(null)
 
     override fun aliased(alias: String): Table<User> {

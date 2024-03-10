@@ -1,12 +1,9 @@
 package com.restaurant.storage.orm.operators
 
-import org.ktorm.database.Database
 import org.ktorm.expression.ScalarExpression
-import org.ktorm.expression.SqlExpression
 import org.ktorm.schema.ColumnDeclaring
 import org.ktorm.schema.IntSqlType
 import org.ktorm.schema.SqlType
-import org.ktorm.support.postgresql.PostgreSqlFormatter
 
 data class ExtractExpression(
     val field: String,

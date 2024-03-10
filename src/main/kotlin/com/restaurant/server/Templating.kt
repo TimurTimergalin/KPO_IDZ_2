@@ -1,6 +1,6 @@
 package com.restaurant.server
 
-import freemarker.cache.*
+import freemarker.cache.ClassTemplateLoader
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 

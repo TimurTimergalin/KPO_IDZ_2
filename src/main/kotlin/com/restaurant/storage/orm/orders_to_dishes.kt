@@ -4,11 +4,14 @@ import com.restaurant.storage.orm.misc.EntityWithId
 import com.restaurant.storage.orm.misc.TableWithId
 import kotlinx.serialization.Serializable
 import org.ktorm.entity.Entity
-import org.ktorm.schema.*
+import org.ktorm.schema.Table
+import org.ktorm.schema.datetime
+import org.ktorm.schema.long
+import org.ktorm.schema.varchar
 import java.time.LocalDateTime
 
 
-interface OrderDish: EntityWithId<OrderDish> {
+interface OrderDish : EntityWithId<OrderDish> {
     companion object : Entity.Factory<OrderDish>() {
         const val COOKING = "cooking"
         const val ORDERED = "ordered"
@@ -34,7 +37,7 @@ interface OrderDish: EntityWithId<OrderDish> {
 val OrderDish.statusSnapshot get() = OrderDish.StatusSnapshot(id, dish.name, status)
 
 
-open class OrdersToDishes(alias: String?): TableWithId<OrderDish>("orders_to_dishes", alias) {
+open class OrdersToDishes(alias: String?) : TableWithId<OrderDish>("orders_to_dishes", alias) {
     companion object : OrdersToDishes(null)
 
     override fun aliased(alias: String): Table<OrderDish> {
@@ -49,9 +52,10 @@ open class OrdersToDishes(alias: String?): TableWithId<OrderDish>("orders_to_dis
     val cookingFinishingTime = datetime("cooking_finishing_time").bindTo { it.cookingFinishingTime }
     val status = varchar("status").bindTo { it.status }
 
-    val order get(): Orders {
-        val table = orderId.referenceTable
-        return table as Orders
-    }
+    val order
+        get(): Orders {
+            val table = orderId.referenceTable
+            return table as Orders
+        }
     val dish get() = dishId.referenceTable as Dishes
 }
